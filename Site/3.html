@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>site</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+	<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+var slideIndex = 1;
+showSlides(slideIndex);
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+</head>
+
+<body>
+<div id="mainwrapper">
+ <header> 
+    <div id="logo"><a href="index.html"><img src="img/logo.webp" alt="" width="51" height="50"><p>Shool project page</p></a></div>
+      <nav>
+		<a href="1.html" title="site 1">Library Catalog</a>
+		<a href="2.html" title="Site 2">Table content</a>
+		<a href="3.html" title="Site 3">Gallery</a>
+		<a href="4.html" title="site 4">Form</a>
+	</nav>
+  </header>
+  <div id="content">
+    <div class="notOnDesktop"> 
+      <!-- This search box not in desktop layouts -->
+      <input type="text" placeholder="Search">
+    </div>
+    <section id="mainContentfull"> 
+      <h1>Gallery</h1>
+      <h3>Sample galery Lightbox</h3>
+      
+ <!-- Images used to open the lightbox -->
+<div class="row">
+  <div class="column">
+    <img src="img/img_lights.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="img/img_mountains.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="img/img_nature.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow">
+  </div>
+  <div class="column">
+    <img src="img/img_snow.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="img/img_lights_wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="img/img_mountains_wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="img/img_nature_wide.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="img/img_snow_wide.jpg" style="width:100%">
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column">
+      <img class="demo" src="img/img_lights.jpg" onclick="currentSlide(1)" alt="Lights">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img/img_mountains.jpg" onclick="currentSlide(2)" alt="Mounains">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img/img_nature.jpg" onclick="currentSlide(3)" alt="Nature">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img/img_snow.jpg" onclick="currentSlide(4)" alt="Snow">
+    </div>
+  </div>
+</div>
+		
+		
+  <div id="footerbar">&nbsp;</div>
+	  </section>	
+	</div>
+	</div>
+</body>
+</html>

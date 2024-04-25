@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>site</title>
+<link href="css.css" rel="stylesheet" type="text/css">
+	<script>
+function validateForm() {
+    let valid = true;
+    let errors = [];
+
+    let name = document.forms["myForm"]["name"].value;
+    if (name == "") {
+        errors.push("Meno je povinné.");
+        valid = false;
+    }
+
+    let email = document.forms["myForm"]["email"].value;
+    if (email == "") {
+        errors.push("Email je povinný.");
+        valid = false;
+    } else if (!email.includes("@")) {
+        errors.push("Email musí obsahovať znak '@'.");
+        valid = false;
+    }
+
+    let gender = document.forms["myForm"]["gender"].value;
+    if (gender == "") {
+        errors.push("Pohlavie je povinné.");
+        valid = false;
+    }
+
+    let agreement = document.forms["myForm"]["agreement"].checked;
+    if (!agreement) {
+        errors.push("Musíte súhlasiť s podmienkami.");
+        valid = false;
+    }
+
+    if (!valid) {
+        alert("Chyby: \n" + errors.join("\n"));
+    }
+    return valid;
+}
+</script>
+</head>
+
+<body>
+<div id="mainwrapper">
+ <header> 
+    <div id="logo"><a href="index.html"><img src="img/logo.webp" alt="" width="51" height="50"><p>Shool project page</p></a></div>
+      <nav>
+		<a href="1.html" title="site 1">Library Catalog</a>
+		<a href="2.html" title="Site 2">Table content</a>
+		<a href="3.html" title="Site 3">Gallery</a>
+		<a href="4.html" title="site 4">Form</a>
+	</nav>
+  </header>
+  <div id="content">
+    <div class="notOnDesktop"> 
+      <!-- This search box not in desktop layouts -->
+      <input type="text" placeholder="Search">
+    </div>
+    <section id="mainContentfull"> 
+      <h1>Form</h1>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+    <label for="name">Meno:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label>Pohlavie:</label>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Muž</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Žena</label><br><br>
+
+    <label for="bio">knihy na darovanie:</label>
+    <textarea id="bio" name="bio"></textarea><br><br>
+
+    <input type="checkbox" id="agreement" name="agreement">
+    <label for="agreement">Súhlasím s podmienkami</label><br><br>
+
+    <input type="submit" value="Odoslať">
+		
+		
+    <footer id= mainContentfull>
+      <article>
+        <h3>Darujte knihy a osvetlite svet vedomostí</h3>
+		  <p> Váš príspevok môže priniesť knihy do rúk tých, ktorí ich najviac potrebujú. Pripojte sa k nám na sociálnych sieťach alebo nás kontaktujte priamo pre viac informácií o tom, ako môžete pomôcť. Spoločne môžeme zmeniť svet - jednu knihu po druhej.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </article>
+      
+    </footer>
+  </div>
+  <div id="footerbar">&nbsp;</div>
+</div>
+</body>
+</html>
