@@ -10,4 +10,4 @@ Added: Content
 Fixed: Gallery
 Added: Form
 Added: Non-functional submission and search features 
-WIP: submission button and search 
+Added: basic layout PDF
